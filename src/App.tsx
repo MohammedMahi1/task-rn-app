@@ -1,11 +1,11 @@
 import { Assets as NavigationAssets } from '@react-navigation/elements';
-import { DarkTheme, DefaultTheme } from '@react-navigation/native';
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { Asset } from 'expo-asset';
 import { createURL } from 'expo-linking';
 import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
-import { useColorScheme } from 'react-native';
-import { Navigation } from './navigation';
+import {  StatusBar, useColorScheme } from 'react-native';
+import Navigation  from './navigation';
 
 Asset.loadAsync([
   ...NavigationAssets,
@@ -23,15 +23,11 @@ export function App() {
   const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme
 
   return (
-    <Navigation
-      theme={theme}
-      linking={{
-        enabled: 'auto',
-        prefixes: [prefix],
-      }}
-      onReady={() => {
-        SplashScreen.hideAsync();
-      }}
-    />
+    <NavigationContainer linking={{ prefixes: [prefix] }} onReady={async () => {
+      await SplashScreen.hideAsync();
+    }}>
+      <StatusBar barStyle={"dark-content"}/>
+          <Navigation/>
+    </NavigationContainer>
   );
 }
