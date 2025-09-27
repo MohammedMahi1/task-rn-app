@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, Pressable, Touchable, TouchableOpacity } from "react-native";
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/state";
 import { getWeek } from "../../store/reducers/dateSlice";
@@ -23,10 +23,10 @@ const DateItem = ({ keyDay }: { keyDay: string }) => {
     (state) => state.date.week[keyDay as keyof typeof state.date.week]
   );
   return (
-    <View style={{ padding: 10 }}>
-      <Text style={{ fontSize: 16 }}>{day}</Text>
-      <Text>{dates}</Text>
-    </View>
+    <TouchableOpacity  style={{ padding: 10 ,backgroundColor:dates===new Date().getDate()?"#daf3ffff":"#ffffff",borderRadius:10,}}>
+      <Text style={{ fontSize: 16,color:"gray" }}>{day}</Text>
+      <Text style={{fontSize:24,fontWeight:"bold"}}>{dates}</Text>
+    </TouchableOpacity>
   );
 };
 export const DatePicker = () => {
@@ -37,9 +37,10 @@ export const DatePicker = () => {
   }, []);
   return (
     <FlatList
+    scrollEnabled={false}
       horizontal
-      style={{ width: "100%"}}
-      contentContainerStyle={{justifyContent:"space-between" }}
+      style={{padding:12, borderRadius:10,backgroundColor:"#ffffff" }}
+      contentContainerStyle={{justifyContent:"space-between" ,width:"100%"}}
       data={Object.keys(dates.week)}
       renderItem={({ item }) => <DateItem keyDay={item} />}
       keyExtractor={(item) => item}

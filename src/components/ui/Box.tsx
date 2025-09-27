@@ -20,7 +20,7 @@ const Body = ({ children }: PropsType) => {
 };
 
 const Box = ({ children }: PropsType) => {
-  return <View style={{padding:20}}>{children}</View>;
+  return <View style={{padding:12,gap:12}}>{children}</View>;
 };
 
 Box.Header = Header;

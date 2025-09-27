@@ -8,7 +8,7 @@ type ContainerProps = {
 
 const Container = ({children,...rest}:ContainerProps) => {
   return (
-    <SafeAreaView {...rest} style={{flex:1,flexDirection:"row"}}>
+    <SafeAreaView {...rest} style={{flex:1,flexDirection:"row",backgroundColor:"#f0f0f0"}}>
         {children}
     </SafeAreaView>
   )
