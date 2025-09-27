@@ -6,6 +6,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
 import {  StatusBar, useColorScheme } from 'react-native';
 import Navigation  from './navigation';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 
 Asset.loadAsync([
   ...NavigationAssets,
@@ -23,11 +25,14 @@ export function App() {
   const theme = colorScheme === 'dark' ? DarkTheme : DefaultTheme
 
   return (
+    
     <NavigationContainer linking={{ prefixes: [prefix] }} onReady={async () => {
       await SplashScreen.hideAsync();
     }}>
+      <Provider store={store}>
       <StatusBar barStyle={"dark-content"}/>
           <Navigation/>
+      </Provider>
     </NavigationContainer>
   );
 }
