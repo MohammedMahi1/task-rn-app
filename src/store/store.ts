@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import dateSlice from './reducers/dateSlice'
+import taskSlice from './reducers/taskSlice'
 // ...
 
 export const store = configureStore({
   reducer: { 
-    date:dateSlice.reducer
+    date:dateSlice.reducer,
+    task:taskSlice.reducer,
    },
    middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false,
