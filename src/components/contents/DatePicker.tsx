@@ -11,6 +11,9 @@ export const DateTitle = () => {
 };
 
 const DateItem = ({ date }: { date: string }) => {
+    const dates = new Date().getDay()
+    console.log(dates);
+    
     return (
         <View style={{padding:10}}>
             <Text>{date}</Text>
