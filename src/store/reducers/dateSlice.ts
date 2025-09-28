@@ -3,7 +3,7 @@ import dayjs from "dayjs";
 import { getWeeks } from "../../utils/getWeeks";
 
 const initialState = {
-  selectedDate: "",
+  selectedDate: dayjs().format("DD-MM-YYYY"),
 selectedDay:""
 };
 

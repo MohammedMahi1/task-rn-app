@@ -13,7 +13,7 @@ const Navigation = () => {
         presentation: 'transparentModal',
         gestureEnabled: true,
         fullScreenGestureEnabled: true,
-        // contentStyle: { backgroundColor: 'rgba(0,0,0,0.5)'}
+        contentStyle: { backgroundColor: "transparent"}
   }}/>
     </Stack.Navigator>
   );
