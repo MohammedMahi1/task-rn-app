@@ -1,31 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+import dayjs from "dayjs";
+import { getWeeks } from "../../utils/getWeeks";
 
 const initialState = {
-    selectedDate: new Date().getDay(),
-    week:{
-        1:"Mon",
-        2:"Tue",
-        3:"Wed",
-        4:"Thu",
-        5:"Fri",
-        6:"Sat",
-        7:"Sun",
-    }
-}
+  selectedDate: "",
+selectedDay:""
+};
 
 const dateSlice = createSlice({
-    name: 'date',
-    initialState,
-    reducers: {
-        getWeek:(state) => {
-            console.log(state.week[state.selectedDate]);
-            
-        },
+  name: "date",
+  initialState,
+  reducers: {
+    selectedDate: (state, action) => {
+      state.selectedDate = action.payload.selectedDate;
+      state.selectedDay = action.payload.selectedDay;
     }
-})
+  },
+});
 
 
-export const { getWeek } = dateSlice.actions
-
-export default dateSlice
+export default dateSlice;
