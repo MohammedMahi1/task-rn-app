@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, TouchableOpacity, Pressable } from "react-native";
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../hooks/state";
 import dayjs from "dayjs";
@@ -40,21 +40,20 @@ const DateItem = ({
     } });
     navigation.navigate("TaskModal" as never);
   };
-  console.log(nowDate);
   
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={handlePress}
       style={{
         alignItems: "center",
         padding: 10,
-        backgroundColor: date === selectedDate ? "#94dbf7ff" :  nowDate === date ? "#e7fcffff": "#ffffff",
+        backgroundColor: date === selectedDate ? "#94dbf7ff" :  nowDate === date ? "#d4f1fcff": "#ffffff",
         borderRadius: 10,
       }}
     >
       <Text style={{ fontSize: 16, color: "gray" }}>{day}</Text>
       <Text style={{ fontSize: 24, fontWeight: "bold" }}>{keyDay}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 export const DatePicker = () => {
@@ -63,7 +62,7 @@ export const DatePicker = () => {
     <FlatList
       scrollEnabled={false}
       horizontal
-      style={{ padding: 12, borderRadius: 10, backgroundColor: "#ffffff" }}
+      style={{ padding: 12, borderRadius: 10, backgroundColor: "#ffffff"}}
       contentContainerStyle={{ justifyContent: "space-between", width: "100%" }}
       data={dates}
       renderItem={({ item }) => (
