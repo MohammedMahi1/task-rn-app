@@ -9,8 +9,8 @@ const TaskModal = () => {
     const {selectedDate,selectedDay} = useAppSelector(state=>state.date)
     const navigate = useNavigation()
   return (
-    <Pressable style={{height:"100%",width:"100%",flexDirection:"column",justifyContent:"flex-end"}}   onPress={()=>navigate.goBack()}  >
-        <Box pointerEvents='auto'   style={{padding:24,backgroundColor:"white",height:"60%",width:"100%",borderTopLeftRadius:16,borderTopRightRadius:16,boxShadow:"0px -1px 60px -20px rgba(0,0,0,0.1)",elevation:5}}>
+    <Pressable style={{flex:1,width:"100%",flexDirection:"column",justifyContent:"flex-end",backgroundColor:"red",zIndex:99,position:"relative"}} onPress={()=>navigate.goBack()}>
+        <Box pointerEvents='none' style={{padding:24,backgroundColor:"white",height:"60%",width:"100%",borderTopLeftRadius:16,position:"absolute",zIndex:0,borderTopRightRadius:16,boxShadow:"0px -1px 60px -20px rgba(0,0,0,0.1)",elevation:5}}>
         <Text>{selectedDay}</Text>
         <Text>{selectedDate}</Text>
         </Box>

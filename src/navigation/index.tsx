@@ -14,6 +14,7 @@ const Navigation = () => {
         gestureEnabled: true,
         fullScreenGestureEnabled: true,
         contentStyle: { backgroundColor: "transparent"}
+        
   }}/>
     </Stack.Navigator>
   );
