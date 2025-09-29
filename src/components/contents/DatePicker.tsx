@@ -32,6 +32,7 @@ const DateItem = ({
   const dispatch = useAppDispatch();
   const {selectedDate} = useAppSelector((state) => state.date);
   const navigation = useNavigation()
+  const nowDate = dayjs().format("DD-MM-YYYY");
   const handlePress = () => {
     dispatch({ type: "date/selectedDate", payload: {
       selectedDate: date,
@@ -39,12 +40,15 @@ const DateItem = ({
     } });
     navigation.navigate("TaskModal" as never);
   };
+  console.log(nowDate);
+  
   return (
     <TouchableOpacity
       onPress={handlePress}
       style={{
+        alignItems: "center",
         padding: 10,
-        backgroundColor: date === selectedDate ? "#daf3ffff" : "#ffffff",
+        backgroundColor: date === selectedDate ? "#94dbf7ff" :  nowDate === date ? "#e7fcffff": "#ffffff",
         borderRadius: 10,
       }}
     >
