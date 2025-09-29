@@ -8,6 +8,7 @@ import {  StatusBar, useColorScheme } from 'react-native';
 import Navigation  from './navigation';
 import { Provider } from 'react-redux';
 import { store } from './store/store';
+import TabStack from './navigation/tabStacks/TabStack';
 
 Asset.loadAsync([
   ...NavigationAssets,
@@ -29,9 +30,11 @@ export function App() {
     <NavigationContainer linking={{ prefixes: [prefix] }} onReady={async () => {
       await SplashScreen.hideAsync();
     }}>
+
       <Provider store={store}>
       <StatusBar barStyle={"dark-content"}/>
-          <Navigation/>
+      <TabStack/>
+
       </Provider>
     </NavigationContainer>
   );
