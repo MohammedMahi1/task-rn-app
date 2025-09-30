@@ -51,6 +51,7 @@ const TabBar = ({ state, descriptors, navigation }: any) => {
 
         return (
           <PlatformPressable
+          key={index}
             href={buildHref(route.name, route.params)}
             accessibilityState={isFocused ? { selected: true } : {}}
             accessibilityLabel={options.tabBarAccessibilityLabel}
