@@ -1,7 +1,7 @@
 import { PlatformPressable } from "@react-navigation/elements";
 import { useLinkBuilder, useTheme } from "@react-navigation/native";
 import { Text, View } from "react-native";
-
+import { House, Icon } from 'lucide-react-native';
 const TabBar = ({ state, descriptors, navigation }: any) => {
   const { buildHref } = useLinkBuilder();
 
@@ -11,7 +11,7 @@ const TabBar = ({ state, descriptors, navigation }: any) => {
         flexDirection: "row",
         height: 60,
         backgroundColor: "#ffffff",
-        bottom: 60,
+        bottom: 40,
         width: "90%",
         alignItems: "center",
         left: "50%",
