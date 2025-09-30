@@ -5,13 +5,20 @@ import TabStack from "./tabStacks/TabStack";
 
 const Stack = createNativeStackNavigator();
 
-
 const Navigation = () => {
   return (
-    <Stack.Navigator screenOptions={{headerShown: false}}>
-
-        <TabStack/>
-  
+    <Stack.Navigator screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Root" component={TabStack} />
+      <Stack.Screen
+        name="TaskModal"
+        component={TaskModal}
+        options={{
+          presentation: "transparentModal",
+          gestureEnabled: true,
+          fullScreenGestureEnabled: true,
+          contentStyle: { backgroundColor: "transparent"},
+        }}
+      />
     </Stack.Navigator>
   );
 };

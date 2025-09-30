@@ -33,8 +33,7 @@ export function App() {
 
       <Provider store={store}>
       <StatusBar barStyle={"dark-content"}/>
-      <TabStack/>
-
+      <Navigation/>
       </Provider>
     </NavigationContainer>
   );

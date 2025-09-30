@@ -8,24 +8,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 
-
 const TabStack = () => {
   return (
-        <Tab.Navigator
-        screenOptions={{headerShown: false}}
-      tabBar={(props) => <TabBar {...props} />
-    }
+    <Tab.Navigator
+      screenOptions={{ headerShown: false }}
+      tabBar={(props) => <TabBar {...props} />}
     >
-        <Tab.Screen name="Categories" component={Categories} />
       <Tab.Screen name="Main" component={Main} />
-      <Stack.Screen  name="TaskModal" component={TaskModal} options={{
-        presentation: 'transparentModal',
-        gestureEnabled: true,
-        fullScreenGestureEnabled: true,
-        contentStyle: { backgroundColor: "transparent",display:"none"},
-  }}/>
+      <Tab.Screen name="Categories" component={Categories} />
     </Tab.Navigator>
-  )
-}
+  );
+};
 
-export default TabStack
+export default TabStack;

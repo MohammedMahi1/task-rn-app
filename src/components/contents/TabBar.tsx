@@ -2,25 +2,37 @@ import { PlatformPressable } from "@react-navigation/elements";
 import { useLinkBuilder, useTheme } from "@react-navigation/native";
 import { Text, View } from "react-native";
 
-const TabBar = ({ state, descriptors, navigation }: any) =>{
+const TabBar = ({ state, descriptors, navigation }: any) => {
   const { buildHref } = useLinkBuilder();
 
   return (
-    <View style={{ flexDirection: 'row' }}>
-      {state.routes.map((route:any, index:number) => {
+    <View
+      style={{
+        flexDirection: "row",
+        height: 60,
+        backgroundColor: "#ffffff",
+        bottom: 60,
+        width: "90%",
+        alignItems: "center",
+        left: "50%",
+        transform: "translate(-50%,0%)",
+        borderRadius: 10,
+      }}
+    >
+      {state.routes.map((route: any, index: number) => {
         const { options } = descriptors[route.key];
         const label =
           options.tabBarLabel !== undefined
             ? options.tabBarLabel
             : options.title !== undefined
-              ? options.title
-              : route.name;
+            ? options.title
+            : route.name;
 
         const isFocused = state.index === index;
 
         const onPress = () => {
           const event = navigation.emit({
-            type: 'tabPress',
+            type: "tabPress",
             target: route.key,
             canPreventDefault: true,
           });
@@ -32,7 +44,7 @@ const TabBar = ({ state, descriptors, navigation }: any) =>{
 
         const onLongPress = () => {
           navigation.emit({
-            type: 'tabLongPress',
+            type: "tabLongPress",
             target: route.key,
           });
         };
@@ -45,7 +57,7 @@ const TabBar = ({ state, descriptors, navigation }: any) =>{
             testID={options.tabBarButtonTestID}
             onPress={onPress}
             onLongPress={onLongPress}
-            style={{ flex: 1, alignItems: 'center', padding: 10 }}
+            style={{ flex: 1, alignItems: "center", padding: 10 }}
           >
             <Text style={{ color: isFocused ? "#000000" : "#888888" }}>
               {label}
@@ -55,6 +67,6 @@ const TabBar = ({ state, descriptors, navigation }: any) =>{
       })}
     </View>
   );
-}
+};
 
 export default TabBar;
